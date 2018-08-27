@@ -1,20 +1,15 @@
 package fun.pplm.msc.framework.vertx.utils;
 
-import javax.ws.rs.core.Response;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-
-import io.vertx.core.json.Json;
 
 public final class ResHelper {
 	
-	public static Response success() {
+	public static ResBean success() {
 		return success(null);
 	}
 	
-	public static Response success(Object content) {
-		String resMsg = Json.encode(new ResBean(content));
-		return Response.ok(resMsg).build();
+	public static ResBean success(Object content) {
+		return new ResBean(content);
 	}
 	
 	public static class ResBean {
